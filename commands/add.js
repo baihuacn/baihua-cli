@@ -22,10 +22,10 @@ const question = [
   {
     type: 'input',
     name: 'repository',
-    message: 'repository:',
+    message: 'owner/repository:',
     validate(val) {
       if (val === '') {
-        return 'repository is required!'
+        return 'owner/repository is required!'
       } else {
         return true
       }

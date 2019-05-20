@@ -2,7 +2,7 @@ const Table = require('cli-table3')
 const chalk = require('chalk')
 
 const table = new Table({
-  head: ['name', 'repository', 'branch'],
+  head: ['name', 'owner/repository', 'branch'],
   style: {
     head: ['green']
   }
