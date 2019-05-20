@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+const { resolve } = require('path')
+const program = require('commander')
+const package = require('../package')
+
+const getCommandDir = (command) => resolve(__dirname, '../commands', command)
+
+program.version(package.version)
+
+program.usage('<command>')
+
+program
+  .command('add')
+  .description('add a new template')
+  .alias('a')
+  .action(() => {
+    require(getCommandDir('add'))
+  })
+
+program
+  .command('delete')
+  .description('delete a template')
+  .alias('d')
+  .action(() => {
+    require(getCommandDir('delete'))
+  })
+
+program
+  .command('list')
+  .description('list all templates')
+  .alias('l')
+  .action(() => {
+    require(getCommandDir('list'))
+  })
+
+program
+  .command('map')
+  .description('place files in different locations')
+  .alias('m')
+  .action(() => {
+    require(getCommandDir('map'))
+  })
+
+program
+  .command('init')
+  .description('generate a new project')
+  .alias('i')
+  .action(() => {
+    require(getCommandDir('init'))
+  })
+
+program.parse(process.argv)
+
+if (program.args.length === 0) {
+  program.help()
+}
