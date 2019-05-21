@@ -34,14 +34,6 @@ program
   })
 
 program
-  .command('map')
-  .description('place files in different locations')
-  .alias('m')
-  .action(() => {
-    require(getCommandDir('map'))
-  })
-
-program
   .command('init')
   .description('generate a new project')
   .alias('i')
